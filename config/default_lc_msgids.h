@@ -29,9 +29,12 @@
  * \{
  */
 
-#define LC_CMD_MID       0x18A4 /**< \brief Msg ID for cmds to LC                */
-#define LC_SEND_HK_MID   0x18A5 /**< \brief Msg ID to request LC housekeeping    */
-#define LC_SAMPLE_AP_MID 0x18A6 /**< \brief Msg ID to request actionpoint sample */
+/** \brief Msg ID for cmds to LC                */
+#define LC_CMD_MID CFE_PLATFORM_CMD_TOPICID_TO_MID(CFE_MISSION_LC_CMD_TOPICID)
+/** \brief Msg ID to request LC housekeeping    */
+#define LC_SEND_HK_MID CFE_PLATFORM_CMD_TOPICID_TO_MID(CFE_MISSION_LC_SEND_HK_TOPICID)
+/** \brief Msg ID to request actionpoint sample */
+#define LC_SAMPLE_AP_MID CFE_PLATFORM_CMD_TOPICID_TO_MID(CFE_MISSION_SAMPLE_AP_TOPICID)
 
 /**\}*/
 
@@ -40,7 +43,8 @@
  * \{
  */
 
-#define LC_HK_TLM_MID 0x08A7 /**< \brief LC Housekeeping Telemetry */
+/** \brief LC Housekeeping Telemetry */
+#define LC_HK_TLM_MID CFE_PLATFORM_TLM_TOPICID_TO_MID(CFE_MISSION_LC_HK_TLM_TOPICID)
 
 /**\}*/
 
