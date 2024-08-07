@@ -176,6 +176,7 @@ CFE_Status_t LC_SendHkCmd(const CFE_MSG_CommandHeader_t *MsgPtr)
         }
 
         /* Update houskeeping watch results array */
+        /* SAD: HKIndex is derived from TableIndex, ensuring it stays within the bounds of the WPResults array */
         PayloadPtr->WPResults[HKIndex] = ByteData;
     }
 
@@ -248,6 +249,7 @@ CFE_Status_t LC_SendHkCmd(const CFE_MSG_CommandHeader_t *MsgPtr)
         }
 
         /* Update houskeeping action results array */
+        /* SAD: HKIndex is derived from TableIndex, ensuring it stays within the bounds of the APResults array */
         PayloadPtr->APResults[HKIndex] = ByteData;
     }
 
@@ -280,7 +282,7 @@ void LC_ResetCountersCmd(const CFE_SB_Buffer_t *BufPtr)
 {
     LC_ResetCounters();
 
-    CFE_EVS_SendEvent(LC_RESET_DBG_EID, CFE_EVS_EventType_DEBUG, "Reset counters command");
+    CFE_EVS_SendEvent(LC_RESET_INF_EID, CFE_EVS_EventType_DEBUG, "Reset counters command");
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
